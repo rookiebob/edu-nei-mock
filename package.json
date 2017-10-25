@@ -1,10 +1,14 @@
 {
   "name": "edu-nei-mock",
-  "version": "1.0.0",
+  "version": "1.0.6",
   "description": "",
   "main": "index.js",
+  "bin": {
+    "edu-nei-mock": "bin/edu-nei-mock.js"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "node bin/edu-nei-mock.js"
   },
   "repository": {
     "type": "git",
@@ -16,7 +20,7 @@
     "url": "https://github.com/rookiebob/edu-nei-mock/issues"
   },
   "homepage": "https://github.com/rookiebob/edu-nei-mock#readme",
-  "devDependencies": {
+  "dependencies": {
     "commander": "^2.11.0",
     "glob": "^7.1.2"
   }

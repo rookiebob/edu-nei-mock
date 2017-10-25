@@ -1,4 +1,4 @@
 #!/usr/bin/env node
 
-var task = require ('../src/updateNeiConfig.js');
+var task = require ('../index.js');
 task();

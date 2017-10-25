@@ -10,7 +10,7 @@ module.exports = function () {
     function main(){
         var prog = require('commander');
         prog.version('0.0.1')
-            .usage('npm run edu-neo-mock')
+            .usage('npm run edu-nei-mock')
             .option('-p, --mockpath <mockpath>', '需要代理的路径,比如http://study.163.com/')
             .parse(process.argv);
 
@@ -27,6 +27,10 @@ module.exports = function () {
             if(err){
                 console.log(err);
             }else{
+                if(!files){
+                    console.log("请确保server.config.js文件存在。如有问题请重新build当前nei工程");
+                    return;
+                }
                 console.log("server.config.js文件的路径是：" + files[0]);
                 NeiConfigPath = files[0];
                 NeiConfig = require(path.resolve('./' , NeiConfigPath));
