@@ -31,7 +31,7 @@ module.exports = function () {
                     console.log("请确保server.config.js文件存在。如有问题请重新build当前nei工程");
                     return;
                 }
-                console.log("server.config.js文件的路径是：" + files[0]);
+                //console.log("server.config.js文件的路径是：" + files[0]);
                 NeiConfigPath = files[0];
                 NeiConfig = require(path.resolve('./' , NeiConfigPath));
                 console.log("server.config.js文件的绝对路径是：" + path.resolve('./' , NeiConfigPath));
@@ -45,11 +45,7 @@ module.exports = function () {
 
 
     function updateNeiConfig(NeiConfig){
-        for(var key in NeiConfig){
-            if (NeiConfig.hasOwnProperty(key)) {
-                console.log(key + '的值为：' + NeiConfig[key]);
-            }
-        }
+
         routes = {
             "ALL /j/*" : MOCKPATH,
             "ALL /p/*": MOCKPATH,
@@ -62,7 +58,7 @@ module.exports = function () {
             NeiConfig.routes =  Object.assign(routes , NeiConfig.routes);
         }
 
-        console.log(NeiConfig.routes);
+        //console.log(NeiConfig.routes);
 
         //不监听文件变化强制刷新
         NeiConfig.reload =  false;
@@ -72,6 +68,15 @@ module.exports = function () {
             headers: {}
         };
 
+        console.log('***********nei配置信息如下**************');
+        for(var key in NeiConfig){
+            if (NeiConfig.hasOwnProperty(key)) {
+                console.log(key + '的值为：' + NeiConfig[key]);
+            }
+        }
+        console.log('***********nei配置信息End**************');
+
+        console.log('配置已经更新完成，愉快的联调吧！');
         //console.log(`var path = require('path'); \n module.exports = ${JSON.stringify(NeiConfig,null,4)}`);
         fs.writeFileSync(NeiConfigPath, `var path = require('path'); \n module.exports = ${JSON.stringify(NeiConfig,null,4)}`);
     }
