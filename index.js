@@ -1,3 +1,3 @@
-var updateNeiConfig = require( './src/updateNeiConfig.js' );
+var main = require( './src/main.js' );
 
-module.exports = updateNeiConfig;
+module.exports = main;
