@@ -21,6 +21,8 @@ const updateNeiConfig = (NeiConfig ,NeiConfigPath , MOCKPATH = 'http://study.163
 
     //不监听文件变化强制刷新
     NeiConfig.reload =  false;
+    //默认走https监听
+    NeiConfig.https = true;
     NeiConfig.modelServer = {
         host: MOCKPATH,
         queries: {edu_format:'json'},
